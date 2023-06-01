@@ -5,4 +5,6 @@
 *.json
 *.zip
 .terraform/
-registry.terraform.io/
+registry.terraform.io/git 
+terraform.tfstate
+terraform.tfstate.backup
