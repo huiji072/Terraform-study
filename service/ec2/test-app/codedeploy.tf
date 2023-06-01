@@ -47,8 +47,14 @@ data "aws_iam_policy_document" "codedeploy_policy_document" {
       "ec2:DescribeInstanceStatus",
       "autoscaling:Describe*",
       "autoscaling:SuspendProcesses",
-      "autoscaling:ResumeProcesses"
+      "autoscaling:ResumeProcesses",
+      "s3:*"
     ]
     resources = ["*"]
   }
+}
+
+resource "aws_iam_role_policy_attachment" "codebuild_policy_attachment_s3" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+  role       = aws_iam_role.codedeploy_role.name
 }

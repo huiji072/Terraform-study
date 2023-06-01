@@ -80,8 +80,7 @@ data "aws_iam_policy_document" "codepipeline_policy_document" {
       "s3:*"
     ]
     resources = [
-        "*",
-    #   var.s3_codepipeline_arn,
+        "*"
     ]
   }
 

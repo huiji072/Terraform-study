@@ -1,6 +1,10 @@
 # ECS Cluster
 resource "aws_ecs_cluster" "this" {
   name = "${local.prefix}-${local.suffix}"
+  setting {
+    name  = "containerInsights"
+    value = "enabled"
+  }
 }
 
 # Fargate Task Definition
@@ -38,7 +42,7 @@ resource "aws_ecs_service" "this" {
   deployment_minimum_healthy_percent = 100
 
   network_configuration {
-    subnets = var.public_subnet_ids
+    subnets = [var.public_subnet_ids[0], var.public_subnet_ids[1]]
 
     security_groups = [
       aws_security_group.sg.id

@@ -1,9 +1,9 @@
 locals {
   prefix       = "test-app-ec2"
   suffix       = "stage"
-  repo_owner   = "finexblock-dev"  
-  repo_name    = "finexblock-matching-engine"   
-  repo_branch    = "dev"   
+  repo_owner   = "huijikim00"  
+  repo_name    = "code-test"   
+  repo_branch    = "main"
 }
 
 variable "github_token" {

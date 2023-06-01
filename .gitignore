@@ -1,0 +1,8 @@
+*.tfstate
+*.backup
+*.hcl
+*.txt
+*.json
+*.zip
+.terraform/
+registry.terraform.io/
