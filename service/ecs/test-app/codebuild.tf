@@ -1,6 +1,6 @@
 data "aws_caller_identity" "current" {}
 
-resource "aws_codebuild_project" "example" {
+resource "aws_codebuild_project" "codebuild-test-app" {
   name          = "${local.prefix}-${local.suffix}"
   description   = "An example CodeBuild project using Terraform"
   build_timeout = "5"

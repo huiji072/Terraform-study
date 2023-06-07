@@ -1,7 +1,7 @@
 # Local .terraform directories
 **/.terraform/*
 
-# .tfstaet files
+# .tfstate files
 *.tfstate
 *.tfstate.*
 
@@ -14,7 +14,7 @@
 
 # terraformrc file
 terraform.rc
-.etrraformrc
+.terraformrc
 
 # others
 *.backup

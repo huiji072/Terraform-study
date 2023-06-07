@@ -45,18 +45,18 @@ resource "aws_ecs_service" "this" {
     subnets = [var.public_subnet_ids[0], var.public_subnet_ids[1]]
 
     security_groups = [
-      aws_security_group.sg.id
+      aws_security_group.sg-test-app.id
     ]
 
     assign_public_ip = true
   }
 
     load_balancer {
-    target_group_arn = aws_lb_target_group.example.arn
+    target_group_arn = aws_lb_target_group.tg-test-app.arn
     container_name   = "${local.prefix}-${local.suffix}"
     container_port   = 80
   }
-    depends_on = [aws_lb_listener.example]
+    depends_on = [aws_lb_listener.lb-listener-test-app]
 
 }
 

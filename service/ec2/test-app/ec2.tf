@@ -1,11 +1,11 @@
-resource "aws_instance" "ec2" {
+resource "aws_instance" "ec2-test-app" {
   ami = "ami-0084b3e5b489354fd"
   instance_type = "t2.micro"
 
   subnet_id = var.public_subnet_ids[0]
 
   iam_instance_profile = aws_iam_instance_profile.iam_instance_profile.name
-  security_groups = [aws_security_group.sg.id]
+  security_groups = [aws_security_group.sg-test-app.id]
 
 #   key_name = "${local.prefix}-${local.suffix}"
   key_name = "test-app-stage"
@@ -19,9 +19,9 @@ resource "aws_eip" "web" {
   vpc = true
 }
 
-resource "aws_eip_association" "web" {
+resource "aws_eip_association" "eip-test-app" {
   allocation_id = aws_eip.web.id
-  instance_id   = aws_instance.ec2.id
+  instance_id   = aws_instance.ec2-test-app.id
 }
 
 resource "aws_iam_role" "iam-role-for-ec2" {

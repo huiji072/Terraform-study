@@ -1,4 +1,4 @@
-resource "aws_codepipeline" "pipeline" {
+resource "aws_codepipeline" "pipeline-test-app" {
   name     = "${local.prefix}-${local.suffix}"
   role_arn = aws_iam_role.codepipeline_role.arn
   artifact_store {
@@ -39,8 +39,8 @@ resource "aws_codepipeline" "pipeline" {
       version         = "1"
 
       configuration = {
-        ApplicationName  = aws_codedeploy_app.codedeploy_app.name
-        DeploymentGroupName = aws_codedeploy_deployment_group.deployment_group.deployment_group_name
+        ApplicationName  = aws_codedeploy_app.codedeploy-app-test-app.name
+        DeploymentGroupName = aws_codedeploy_deployment_group.deployment-group-test-app.deployment_group_name
       }
     }
   }

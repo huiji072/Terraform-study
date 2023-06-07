@@ -1,4 +1,4 @@
-resource "aws_security_group" "sg" {
+resource "aws_security_group" "sg-test-app" {
   name        = "${local.prefix}-${local.suffix}-SG"
   description = "${local.prefix}-${local.suffix}-SG"
   vpc_id      = var.vpc_id

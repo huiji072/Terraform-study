@@ -1,9 +1,9 @@
-resource "aws_codedeploy_app" "codedeploy_app" {
+resource "aws_codedeploy_app" "codedeploy-app-test-app" {
   name = "${local.prefix}-${local.suffix}"
 }
 
-resource "aws_codedeploy_deployment_group" "deployment_group" {
-  app_name               = aws_codedeploy_app.codedeploy_app.name
+resource "aws_codedeploy_deployment_group" "deployment-group-test-app" {
+  app_name               = aws_codedeploy_app.codedeploy-app-test-app.name
   deployment_group_name  = "${local.prefix}-${local.suffix}"
   service_role_arn       = aws_iam_role.codedeploy_role.arn
 

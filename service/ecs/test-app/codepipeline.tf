@@ -1,4 +1,4 @@
-resource "aws_codepipeline" "pipeline" {
+resource "aws_codepipeline" "pipeline-test-app" {
   name     = "${local.prefix}-${local.suffix}"
   role_arn = aws_iam_role.codepipeline_role.arn
   artifact_store {

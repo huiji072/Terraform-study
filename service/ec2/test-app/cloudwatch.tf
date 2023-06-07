@@ -1,4 +1,4 @@
-resource "aws_sns_topic" "example" {
+resource "aws_sns_topic" "sns-topic-test-app" {
   name = "${local.prefix}-${local.suffix}"
 }
 
@@ -18,17 +18,17 @@ resource "aws_cloudwatch_metric_alarm" "cpu_utilization_alarm" {
   statistic           = "Maximum"
   threshold           = "70"
   alarm_description   = "Trigger an alarm when CPU Utilization is over 70% for instance"
-  alarm_actions       = [aws_sns_topic.example.arn]
+  alarm_actions       = [aws_sns_topic.sns-topic-test-app.arn]
   dimensions = {
-    InstanceId = aws_instance.ec2.id
+    InstanceId = aws_instance.ec2-test-app.id
   }
 }   
 
-resource "aws_cloudwatch_log_group" "example_group" {
+resource "aws_cloudwatch_log_group" "cw-log-group-test-app" {
   name = "${local.prefix}-${local.suffix}"
 }
 
-resource "aws_cloudwatch_log_stream" "example_stream" {
+resource "aws_cloudwatch_log_stream" "cw-log-stream-test-app" {
   name            = "${local.prefix}-${local.suffix}"
-  log_group_name  = aws_cloudwatch_log_group.example_group.name
+  log_group_name  = aws_cloudwatch_log_group.cw-log-group-test-app.name
 }
