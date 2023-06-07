@@ -1,4 +1,22 @@
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstaet files
 *.tfstate
+*.tfstate.*
+
+# .tfvars files
+*.tfvars
+
+# no creds
+*.pem
+*.ppk
+
+# terraformrc file
+terraform.rc
+.etrraformrc
+
+# others
 *.backup
 *.hcl
 *.txt

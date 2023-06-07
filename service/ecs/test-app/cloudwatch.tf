@@ -32,4 +32,3 @@ resource "aws_cloudwatch_log_stream" "example_stream" {
   name            = "${local.prefix}-${local.suffix}"
   log_group_name  = aws_cloudwatch_log_group.example_group.name
 }
-
